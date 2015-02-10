@@ -28,7 +28,7 @@ tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
 mv $CACHE_DIR/$ARCHIVE_NAME $BUILD_DIR/vendor/phantomjs
 
 echo "Downloading and installing Browser"
-chromebrowser_url = "https://commondatastorage.googleapis.com/chromium-browser-snapshots/Arm/103408/chrome-linux.zip"
+chromebrowser_url="https://commondatastorage.googleapis.com/chromium-browser-snapshots/Arm/103408/chrome-linux.zip"
 curl $chromebrowser_url -s -o $BUILD_DIR/vendor/chromebrowser/chromebrowser.zip
 unzip $BUILD_DIR/vendor/chromebrowser/chromebrowser.zip -d $BUILD_DIR/vendor/chromebrowser/
 
