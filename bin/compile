@@ -25,6 +25,13 @@ mkdir -p $BUILD_DIR/vendor
 tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
 mv $CACHE_DIR/$ARCHIVE_NAME $BUILD_DIR/vendor/phantomjs
 
+# Download google chrome driver
+topic "Downloading and installing ChromeDriver"
+chromedriver_url="http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip"
+curl $chromedriver_url -s -o $BUILD_DIR/vendor/chromedriver.zip
+unzip $BUILD_DIR/vendor/chromedriver.zip
+rm $BUILD_DIR/vendor/chromedriver.zip
+
 echo "-----> exporting PATH and LIBRARY_PATH"
 PROFILE_PATH="$BUILD_DIR/.profile.d/phantomjs.sh"
 mkdir -p $(dirname $PROFILE_PATH)
