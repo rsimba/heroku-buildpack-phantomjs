@@ -28,13 +28,12 @@ mv $CACHE_DIR/$ARCHIVE_NAME $BUILD_DIR/vendor/phantomjs
 # Download google chrome driver
 echo "Downloading and installing ChromeDriver"
 chromedriver_url="http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip"
-curl $chromedriver_url -s -o $BUILD_DIR/vendor/chromedriver.zip
-unzip $BUILD_DIR/vendor/chromedriver.zip
-rm $BUILD_DIR/vendor/chromedriver.zip
+curl $chromedriver_url -s -o $BUILD_DIR/vendor/chromedriver/chromedriver.zip
+unzip $BUILD_DIR/vendor/chromedriver/chromedriver.zip
 
 echo "-----> exporting PATH and LIBRARY_PATH"
 PROFILE_PATH="$BUILD_DIR/.profile.d/phantomjs.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:vendor/chromedriver"' >> $PROFILE_PATH
 echo 'export PATH="$PATH:vendor/phantomjs/bin"' >> $PROFILE_PATH
 echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/phantomjs/lib"' >> $PROFILE_PATH
